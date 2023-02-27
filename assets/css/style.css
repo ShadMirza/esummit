@@ -1174,7 +1174,7 @@ overflow:visible;
 footer {
 	background: #101010;
 	color: #ccc;
-	padding: 80px 0 0 0;
+	padding: 20px 0 0 0;
 	}
 	
 	footer h3, .de_light footer h3 {
@@ -5348,7 +5348,7 @@ margin-bottom:20px;
 }
 
 footer.style-2{
-	padding:80px 0 60px 0;
+	/* padding:80px 0 60px 0; */
 }
 
 
