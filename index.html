@@ -929,6 +929,7 @@ quis nostrud exercitation ullamco.
 
                         <div class="col-md-8 offset-md-2 wow fadeInUp animated" style="visibility: visible; animation-name: fadeInUp; background-size: cover;">
                             <form name="contactForm" id="contact_form" method="post" action="https://api.web3forms.com/submit">
+                                <input type="hidden" name="from_name" value="Query | E-Summit">
                                 <input type="hidden" name="access_key" value="5404c3b8-0c49-49b8-bb0f-78834d59c603">
                                 <div class="row" style="background-size: cover;">
                                     <div class="col-md-6" style="background-size: cover;">
@@ -953,7 +954,7 @@ quis nostrud exercitation ullamco.
                                             <textarea name="message" id="message" class="form-control" placeholder="Message"></textarea>
                                         </div>
                                     </div>
-
+                                    <div class="h-captcha" data-captcha="true"></div>
                                     <div class="col-md-12 text-center" style="background-size: cover;">
                                         <p id="submit">
                                             <input type="submit" id="send_message" value="Contact Us" class="btn btn-line">
@@ -962,7 +963,9 @@ quis nostrud exercitation ullamco.
                                         <div id="mail_fail" class="error" style="background-size: cover;">Sorry, error occured this time sending your message.</div>
                                     </div>
                                 </div>
-                                <input type="hidden" name="redirect" value="https://web3forms.com/success">
+                                <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+                                <input type="hidden" name="subject" value="New Submission from E-Summit Website ">
+                                <input type="hidden" name="redirect" value="https://esummit2023.netlify.app/">
                             </form>
                         </div>
 
@@ -1097,9 +1100,25 @@ dicta sunt explicabo.
 
     <!-- Javascript Files
     ================================================== -->
+    <!-- Captcha file -->
+    <script src="https://web3forms.com/client/script.js" async defer></script>
+    <script>
+        const form = document.getElementById('contact_form');
+        
+        form.addEventListener('submit', function(e) {
+        
+            const hCaptcha = form.querySelector('textarea[name=h-captcha-response]').value;
+        
+            if (!hCaptcha) {
+                e.preventDefault();
+                alert("Please fill out captcha field")
+                return
+            }
+        });
+        </script>
     <script src="assets/js/plugins.js"></script>
     <script src="assets/js/designesia.js"></script>
-    <script src="assets/js/validation.js"></script>
+    <!-- <script src="assets/js/validation.js"></script> -->
     <script src="assets/js/countdown-custom.js"></script>
     <script src="assets/js/particles.js"></script>
     <script src="assets/js/particles-settings.js"></script>
